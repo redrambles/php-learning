@@ -31,11 +31,29 @@ class Router
   {
     if (array_key_exists($uri, $this->routes[$requestType])){
       
-      return $this->routes[$requestType][$uri];
+      // PagesController@home
+
+      return $this->callAction(
+
+        // explode will split the two parts (PagesController and 'home', for example) and make them two elements in an array - and the '...' will pass these as arguments to a method/function
+        ...explode('@', $this->routes[$requestType][$uri])
+      );
 
     }
 
     throw new Exception('No route defined for this uri');
+  }
+
+  protected function callAction($controller, $action)
+  {
+    if (! method_exists($controller, $action)){
+      throw new Exception(
+        "{$controller} does not respond to the {$action} action."
+      );
+    }
+
+    return (new $controller)->$action();
+
   }
 
 }
