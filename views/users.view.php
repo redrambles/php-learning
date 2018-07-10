@@ -1,6 +1,5 @@
 <?php require('partials/head.php'); ?>
 
-<h1>Home Page</h1>
 <!-- <?php //foreach ($tasks as $task) { ?>
 
 <ul>
@@ -12,16 +11,18 @@
 </ul>
   <?php //} ?> -->
 
-<!-- <?php //foreach ($users as $user) : ?>
-    <li><?php //$user->name; ?></li>
-<?php //endforeach; ?>
+  <h1>All Users</h1>
+
+<?php foreach ($users as $user) : ?>
+    <li><?php echo $user->name; ?></li>
+<?php endforeach; ?>
 
 <h1>Submit Your Name</h1>
 
-<form method="POST" action="/names">
+<form method="POST" action="/users">
     <input name="name"></input>
     <button type="submit">Submit</button>
-</form> -->
+</form>
 
 <?php require('partials/footer.php'); ?>
 

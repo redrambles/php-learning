@@ -3,7 +3,6 @@
 require 'vendor/autoload.php';
 
 echo '<h1>This is Index!</h1>';
-
 $query = require 'core/bootstrap.php';
 // $router = new Router;
 // require 'routes.php';

@@ -6,25 +6,27 @@ class PagesController
   public function home()
   {
 
-    $users = App::get('database')->selectAll('users');
+    
 
-    require 'views/index.view.php';
+    return view('index');
 
   }
 
   public function about()
   {
 
-    require 'views/about.view.php';
+    return view('about');
 
   }
 
   public function contact()
   {
 
-    $name = "Ann";
+    $who = "Ann";
 
-    require 'views/contact.view.php';
+    return view('contact', [
+      'who' => $who
+    ]);
 
   }
 
