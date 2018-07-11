@@ -1,4 +1,6 @@
 <?php
+namespace App\Core;
+
 
 class Router
 {
@@ -40,12 +42,13 @@ class Router
       );
 
     }
-
-    throw new Exception('No route defined for this uri');
+    throw new Exception('No route defined for this uri.');
   }
 
   protected function callAction($controller, $action)
   {
+
+    $controller = "App\\Controllers\\{$controller}";
 
     $controller = new $controller;
 

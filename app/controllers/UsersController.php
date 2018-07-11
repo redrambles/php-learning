@@ -1,4 +1,7 @@
 <?php
+namespace App\Controllers;
+
+use App\Core\App;
 
 class UsersController
 {
@@ -16,7 +19,7 @@ class UsersController
   {
     //insert user associated witht eh request 
     // redirect back to all users
-    echo('You typed ' . $_POST['name']);
+    //echo('You typed ' . $_POST['name']);
 
     App::get('database')->insert('users', [
         'name' => $_POST['name']
